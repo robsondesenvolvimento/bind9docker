@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  bind:
+    container_name: bind-robson
+    image: internetsystemsconsortium/bind9:9.16
+    restart: always
+    ports:
+      - 53:53/udp
+      - 53:53/tcp
+      - 953:953/tcp
+    volumes:
+      - C:\App\bind\etc:/etc/bind
+      - C:\App\bind\var\cache\bind:/var/cache/bind 
+      - C:\App\bind\var\lib\bind:/var/lib/bind
+      - C:\App\bind\var\log:/var/log
+
+networks:
+  default:
+    name: minharede
+    external: true
